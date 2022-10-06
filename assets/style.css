@@ -1,3 +1,8 @@
+*{
+    margin: 2px;
+    font-family: 'Franklin Gothic Medium', 'sans-serif';
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -7,16 +12,39 @@ header {
 header h1 {
     font-size: 1.5rem;
 }
- .startInfo #startQuizBtn {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+#scoreBord {
+    margin-right: 10px;
+}
+
+#startQuizBtn {
     color:white;
     background-color: #735c8e;
  }
 
  .startInfo {
-    background-color: #eee;
+    margin-top: 4%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-start: 1;
+    place-items: center;
+    grid-template: 1fr .5fr .3fr / .2fr 1fr .2fr;
  }
+
+.startInfo h2 {
+    margin-bottom: 4%;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    font-size: 2.2rem;
+}
+.startInfo p {
+    margin-bottom: 4%;
+    display: flex;
+    text-align: center;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    font-size: 1.01rem;
+}
+.startInfo button {
+    grid-column-start: 2;
+    grid-row-start: 3;
+    padding-left: 1rem;
+    padding-right: 1rem
+}
