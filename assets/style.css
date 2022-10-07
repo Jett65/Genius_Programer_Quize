@@ -30,12 +30,18 @@ header h1 {
  }
 
 .startInfo h2 {
+    /*temp*/
+    display: none;
+    /*----*/
     margin-bottom: 4%;
     grid-column-start: 2;
     grid-row-start: 1;
     font-size: 2.2rem;
 }
 .startInfo p {
+    /*temp*/
+    display: none;
+    /*----*/
     margin-bottom: 4%;
     display: flex;
     text-align: center;
@@ -44,19 +50,24 @@ header h1 {
     font-size: 1.01rem;
 }
 .startInfo button{
+    /*temp*/
+    display: none;
+    /*----*/
     grid-column-start: 2;
     grid-row-start: 3;
     padding-left: 1rem;
     padding-right: 1rem;
     
 }
+#startQuizBtn:hover {
+    background-color: #3c215c;
+}
 
 /*Question screen*/
-.questions h2{
-    color: green;
+.questions{
     display: none;
-}
-
-#startQuizBtn:hover {
-    background-color: black;
-}
+    margin-top: 4%;
+    display: grid;
+    place-items: center;
+    grid-template: 1fr .5fr .3fr / .2fr 1fr .2fr;
+ }

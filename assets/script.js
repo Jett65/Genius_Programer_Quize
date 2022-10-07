@@ -4,5 +4,5 @@ var questions = document.querySelector(".questions");
 
 startBtn.addEventListener("click", function(event) {
     startContent.style.display = "none";
-    questions.style.display = "block";
+    questions.style.display = "block"
 });
