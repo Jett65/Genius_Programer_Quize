@@ -21,6 +21,7 @@ header h1 {
     background-color: #735c8e;
  }
 
+ /* Start screen*/
  .startInfo {
     margin-top: 4%;
     display: grid;
@@ -42,9 +43,20 @@ header h1 {
     grid-row-start: 2;
     font-size: 1.01rem;
 }
-.startInfo button {
+.startInfo button{
     grid-column-start: 2;
     grid-row-start: 3;
     padding-left: 1rem;
-    padding-right: 1rem
+    padding-right: 1rem;
+    
+}
+
+/*Question screen*/
+.questions h2{
+    color: green;
+    display: none;
+}
+
+#startQuizBtn:hover {
+    background-color: black;
 }
