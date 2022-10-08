@@ -1,13 +1,20 @@
+:root {
+    --butColor: #735c8e;
+    --btnTextColor: white;
+    --shiftColor: #3c215c;
+}
+
 *{
     margin: 2px;
     font-family: 'Franklin Gothic Medium', 'sans-serif';
+
 }
 
 header {
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    color: #735c8e;
+    color: var(--butColor);
 }
 header h1 {
     font-size: 1.5rem;
@@ -17,8 +24,8 @@ header h1 {
 }
 
 #startQuizBtn {
-    color:white;
-    background-color: #735c8e;
+    color: var(--btnTextColor);
+    background-color: var(--butColor);
  }
 
  /* Start screen*/
@@ -30,29 +37,20 @@ header h1 {
  }
 
 .startInfo h2 {
-    /*temp*/
-    display: none;
-    /*----*/
     margin-bottom: 4%;
     grid-column-start: 2;
     grid-row-start: 1;
     font-size: 2.2rem;
 }
 .startInfo p {
-    /*temp*/
-    display: none;
-    /*----*/
     margin-bottom: 4%;
     display: flex;
     text-align: center;
     grid-column-start: 2;
     grid-row-start: 2;
-    font-size: 1.01rem;
+    font-size: 1.19rem;
 }
 .startInfo button{
-    /*temp*/
-    display: none;
-    /*----*/
     grid-column-start: 2;
     grid-row-start: 3;
     padding-left: 1rem;
@@ -60,14 +58,22 @@ header h1 {
     
 }
 #startQuizBtn:hover {
-    background-color: #3c215c;
+    background-color: var(--shiftColor);
 }
 
 /*Question screen*/
 .questions{
-    display: none;
     margin-top: 4%;
     display: grid;
     place-items: center;
-    grid-template: 1fr .5fr .3fr / .2fr 1fr .2fr;
- }
+    grid-template: repeat(5 1fr) / repeat(3 1fr);
+    display: none;
+}
+.questions button {
+    background-color: var(--butColor);
+    color: var(--btnTextColor);
+    margin: 5px;
+}
+.questions button:hover {
+    background-color: var(--shiftColor);
+}
