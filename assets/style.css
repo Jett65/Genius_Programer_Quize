@@ -69,6 +69,9 @@ header h1 {
     grid-template: repeat(5 1fr) / repeat(3 1fr);
     display: none;
 }
+#question {
+    font-size: 1.2rem;
+}
 .questionsPage button {
     background-color: var(--butColor);
     color: var(--btnTextColor);
