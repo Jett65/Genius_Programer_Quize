@@ -14,7 +14,7 @@ var questionOne = "Commonly used data types DO NOT include?";
 var questionOneAnswers = ["String", "Boolean", "Number", "Alerts"];
 
 // Question 2
-var questionTwo = "The condition in an if/else statement is enclosed in enclosed with ____.";
+var questionTwo = "The condition in an if/else statement is enclosed with ____.";
 var questionTwoAnswers = ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"];
 
 // Question 3
@@ -35,18 +35,38 @@ var listOfQuestions_Order = [];
 function getQuestion() {
     // randomly choose a question to display
     for (i = 0; i < listOfQuestions.length; i++) {
-        var radques = Math.floor(Math.random() * listOfQuestions.length);
-        listOfQuestions_Order.push(listOfQuestions[radques]);
+        var randques = Math.floor(Math.random() * listOfQuestions.length);
+        listOfQuestions_Order.push(listOfQuestions[randques]);
         listOfQuestions.pop();
     }
-    question.textContent = listOfQuestions_Order[0];
+    if (listOfQuestions_Order[randques] === questionOne) {
+        randAnswers(questionOneAnswers);
+    } else if (listOfQuestions_Order[randques] === questionTwo) {
+        randAnswers(questionTwoAnswers);
+    } else if (listOfQuestions_Order[randques] === questionThree) {
+        randAnswers(questionThreeAnswers);
+    } else if (listOfQuestions_Order[randques] === questionFour) {
+        randAnswers(questionFourAnswers);
+    } else if (listOfQuestions_Order[randques] === questionFive) {
+        randAnswers(questionFiveAnswers);
+    }
 
+    question.textContent = listOfQuestions_Order[0];
 }
 
-// when start button is clicked
-startBtn.addEventListener("click", function (event) {
+function randAnswers(answer_list) {
+    // Gets the question answers
+    answerA.textContent = answer_list[0];
+    answerB.textContent = answer_list[1];
+    answerC.textContent = answer_list[2];
+    answerD.textContent = answer_list[3];
+}
+
+startBtn.addEventListener("click", function(event) {
+    // when start button is clicked
     startContent.style.display = "none";
     questionsPage.style.display = "grid";
-    
     getQuestion();
 });
+
+//TODO: Make the awsers apper with the proper question 
