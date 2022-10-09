@@ -62,18 +62,18 @@ header h1 {
 }
 
 /*Question screen*/
-.questions{
+.questionsPage{
     margin-top: 4%;
     display: grid;
     place-items: center;
     grid-template: repeat(5 1fr) / repeat(3 1fr);
     display: none;
 }
-.questions button {
+.questionsPage button {
     background-color: var(--butColor);
     color: var(--btnTextColor);
     margin: 5px;
 }
-.questions button:hover {
+.questionsPage button:hover {
     background-color: var(--shiftColor);
 }
