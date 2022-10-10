@@ -45,7 +45,7 @@ var questionTwo = new Question(
     "Parentheses",
     "Curly Brackets",
     "Square Brackets",
-    answerB
+    "B: Parentheses"
 
 );
 // Question 3
@@ -55,7 +55,7 @@ var questionThree = new Question(
     "Other Arrays",
     "Booleans",
     "All of the Above",
-    answerD
+    "D: All of the Above"
 );
 // Question 4
 var questionFour = new Question(
@@ -64,7 +64,7 @@ var questionFour = new Question(
     "Curly Brackets",
     "Quotes",
     "Parentheses",
-    answerC
+    "C: Quotes"
 );
 // Question 5
 var questionFive = new Question(
@@ -73,31 +73,79 @@ var questionFive = new Question(
     "Terminal/Bash",
     "For Loops",
     "JavaScript",
-    answerA
+    "A: Console Logs"
 );
-
-function answerOnClick(button, question) {
-    // Capters the answer button click and check if it is correct.
-    button.addEventListener("click", function (event) {
-        if (question.correctAnswer == button.textContent) {
-            validation.textContent = "Correct!";
-        } else {
-            validation.textContent = "Wrong!";
-        }
-        console.log(question.correctAnswer);
-        console.log(button.textContent);
-    });
+function currentQuestion() {
+    // checks what the correctAnswer is
+    var currentQuestion = ''
+    if (onScreenQuestion.textContent == questionOne.question) {
+        currentQuestion = questionOne.correctAnswer
+    } else if (onScreenQuestion.textContent == questionTwo.question) {
+        currentQuestion = questionTwo.correctAnswer
+    } else if (onScreenQuestion.textContent == questionThree.question) {
+        currentQuestion = questionThree.correctAnswer
+    } else if (onScreenQuestion.textContent == questionFour.question) {
+        currentQuestion = questionFour.correctAnswer
+    } else if (onScreenQuestion.textContent == questionFive.question) {
+        currentQuestion = questionFive.correctAnswer
+    } else {}
+    return currentQuestion
 }
 
-function nextQuestion() {
-    // after question is answered gos to the next one. 
+function getDisplay() {
+    // Checks which question is displayed and displays the next question
+    if (onScreenQuestion.textContent == questionOne.question) {
+        questionTwo.displayQuestion();
+    } else if (onScreenQuestion.textContent == questionTwo.question) {
+        questionThree.displayQuestion();
+    } else if (onScreenQuestion.textContent == questionThree.question) {
+        questionFour.displayQuestion();
+    } else if (onScreenQuestion.textContent == questionFour.question) {
+        questionFive.displayQuestion();
+    } else if (onScreenQuestion.textContent == questionFive.question) {
+        console.log("Last page");
+    } else {
+        questionOne.displayQuestion();
+    }
 }
-
+// Start Button click
 startBtn.addEventListener("click", function (event) {
     // when start button is clicked
     startContent.style.display = "none";
     questionsPage.style.display = "grid";
-    questionOne.displayQuestion();
+    getDisplay();
 });
 
-//TODO: NextQuestion function
+// Answer buttons click
+onScreenAnswerA.addEventListener("click", function (event) {
+    if (currentQuestion() == onScreenAnswerA.textContent) {
+        validation.textContent = "Correct!";
+    } else {
+        validation.textContent = "Wrong!";
+    }
+    getDisplay()
+});
+onScreenAnswerB.addEventListener("click", function (event) {
+    if (currentQuestion() == onScreenAnswerB.textContent) {
+        validation.textContent = "Correct!";
+    } else {
+        validation.textContent = "Wrong!";
+    }
+    getDisplay()
+});
+onScreenAnswerC.addEventListener("click", function (event) {
+    if (currentQuestion() == onScreenAnswerC.textContent) {
+        validation.textContent = "Correct!";
+    } else {
+        validation.textContent = "Wrong!";
+    }
+    getDisplay()
+});
+onScreenAnswerD.addEventListener("click", function (event) {
+    if (currentQuestion() == onScreenAnswerD.textContent) {
+        validation.textContent = "Correct!";
+    } else {
+        validation.textContent = "Wrong!";
+    }
+    getDisplay()
+});
