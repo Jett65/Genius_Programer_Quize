@@ -1,72 +1,103 @@
 var startBtn = document.querySelector("#startQuizBtn");
 var startContent = document.querySelector(".startInfo");
 var questionsPage = document.querySelector(".questionsPage");
-var question = document.querySelector("#question");
-var answerA = document.querySelector("#answerA");
-var answerB = document.querySelector("#answerB");
-var answerC = document.querySelector("#answerC");
-var answerD = document.querySelector("#answerD");
+var onScreenQuestion = document.querySelector("#question");
+var onScreenAnswerA = document.querySelector("#answerA");
+var onScreenAnswerB = document.querySelector("#answerB");
+var onScreenAnswerC = document.querySelector("#answerC");
+var onScreenAnswerD = document.querySelector("#answerD");
+var validation = document.querySelector("#validate");
 
+class Question {
+    // This class will crate a question
+    constructor(question, answerA, answerB, answerC, answerD, correctAnswer) {
+        this.question = question;
+        this.answerA = answerA;
+        this.answerB = answerB;
+        this.answerC = answerC;
+        this.answerD = answerD;
+        this.correctAnswer = correctAnswer;
+    }
 
+    displayQuestion() {
+        // displays the question to the screen
+        onScreenQuestion.textContent = this.question;
+        onScreenAnswerA.textContent = "A: " + this.answerA;
+        onScreenAnswerB.textContent = "B: " + this.answerB;
+        onScreenAnswerC.textContent = "C: " + this.answerC;
+        onScreenAnswerD.textContent = "D: " + this.answerD;
+    }
+}
 
 // Question 1
-var questionOne = "Commonly used data types DO NOT include?";
-var questionOneAnswers = ["String", "Boolean", "Number", "Alerts"];
-
+var questionOne = new Question(
+    "Commonly used data types DO NOT include?",
+    "String",
+    "Boolean",
+    "Alerts",
+    "Number",
+    "C: Alerts"
+);
 // Question 2
-var questionTwo = "The condition in an if/else statement is enclosed with ____.";
-var questionTwoAnswers = ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"];
+var questionTwo = new Question(
+    "The condition in an if/else statement is enclosed with ____.",
+    "Quotes",
+    "Parentheses",
+    "Curly Brackets",
+    "Square Brackets",
+    answerB
 
+);
 // Question 3
-var questionThree = "Arrays In JavaScript can be used to store?";
-var questionThreeAnswers = ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"];
-
+var questionThree = new Question(
+    "Arrays In JavaScript can be used to store?",
+    "Numbers and Strings",
+    "Other Arrays",
+    "Booleans",
+    "All of the Above",
+    answerD
+);
 // Question 4
-var questionFour = "String values must be enclosed within___ when being assigned to variables?";
-var questionFourAnswers = ["Commas", "Curly Brackets", "Quotes", "Parentheses"];
-
+var questionFour = new Question(
+    "String values must be enclosed within___ when being assigned to variables?",
+    "Commas",
+    "Curly Brackets",
+    "Quotes",
+    "Parentheses",
+    answerC
+);
 // Question 5
-var questionFive = "A very useful tool used during development and debugging for printing content to debugger is";
-var questionFiveAnswers = ["JavaScript", "Terminal/Bash", "For Loops", "Console Logs"];
+var questionFive = new Question(
+    "A very useful tool used during development and debugging for printing content to debugger is",
+    "Console Logs",
+    "Terminal/Bash",
+    "For Loops",
+    "JavaScript",
+    answerA
+);
 
-var listOfQuestions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
-var listOfQuestions_Order = [];
-
-function getQuestion() {
-    // randomly choose a question to display
-    for (i = 0; i < listOfQuestions.length; i++) {
-        var randques = Math.floor(Math.random() * listOfQuestions.length);
-        listOfQuestions_Order.push(listOfQuestions[randques]);
-        listOfQuestions.pop();
-    }
-    if (listOfQuestions_Order[randques] === questionOne) {
-        randAnswers(questionOneAnswers);
-    } else if (listOfQuestions_Order[randques] === questionTwo) {
-        randAnswers(questionTwoAnswers);
-    } else if (listOfQuestions_Order[randques] === questionThree) {
-        randAnswers(questionThreeAnswers);
-    } else if (listOfQuestions_Order[randques] === questionFour) {
-        randAnswers(questionFourAnswers);
-    } else if (listOfQuestions_Order[randques] === questionFive) {
-        randAnswers(questionFiveAnswers);
-    }
-
-    question.textContent = listOfQuestions_Order[0];
+function answerOnClick(button, question) {
+    // Capters the answer button click and check if it is correct.
+    button.addEventListener("click", function (event) {
+        if (question.correctAnswer == button.textContent) {
+            validation.textContent = "Correct!";
+        } else {
+            validation.textContent = "Wrong!";
+        }
+        console.log(question.correctAnswer);
+        console.log(button.textContent);
+    });
 }
 
-function randAnswers(answer_list) {
-    // Gets the question answers
-    answerA.textContent = answer_list[0];
-    answerB.textContent = answer_list[1];
-    answerC.textContent = answer_list[2];
-    answerD.textContent = answer_list[3];
+function nextQuestion() {
+    // after question is answered gos to the next one. 
 }
 
-startBtn.addEventListener("click", function(event) {
+startBtn.addEventListener("click", function (event) {
     // when start button is clicked
     startContent.style.display = "none";
     questionsPage.style.display = "grid";
-    getQuestion();
+    questionOne.displayQuestion();
 });
 
-//TODO: Make the awsers apper with the proper question 
+//TODO: NextQuestion function

@@ -1,7 +1,7 @@
 :root {
-    --butColor: #735c8e;
+    --butColor: #987bb9;
     --btnTextColor: white;
-    --shiftColor: #3c215c;
+    --shiftColor: #4d2c75;
 }
 
 *{
@@ -65,18 +65,30 @@ header h1 {
 .questionsPage{
     margin-top: 4%;
     display: grid;
-    place-items: center;
-    grid-template: repeat(5 1fr) / repeat(3 1fr);
+    grid-template: repeat(6, .5fr)/repeat(3, 1fr);
     display: none;
 }
 #question {
     font-size: 1.2rem;
+    grid-column-start: 2;
+    margin-bottom: 1%;
 }
 .questionsPage button {
+    font-size: 1.04rem;
+    grid-column-start: 2;
     background-color: var(--butColor);
+    text-align: left;
     color: var(--btnTextColor);
-    margin: 5px;
+    margin: 3px;
+    max-width: 160px;
 }
 .questionsPage button:hover {
     background-color: var(--shiftColor);
+}
+#validate {
+    color: rgb(206, 198, 198);
+    font-size: 1rem;
+    grid-row-start: 6;
+    grid-column-start: 2;
+    
 }
