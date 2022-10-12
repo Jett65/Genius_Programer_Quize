@@ -9,12 +9,13 @@
 </head>
 <body>
     <header>
-        <h1>Coding Quiz</h1>
+        <h1>View Highscore</h1>
         <div class="scoreBoard">
-            <div id="score">Score</div>
+            <div id="score">Time</div>
             <div id="time">75</div>
         </div>
-    </header>
+    </header>        
+    <!--Start Screen-->
     <div class="startInfo">
         <h2>Coding Quiz Challenge</h2>
         <p>Try to answer the following code-related questions within the time
@@ -22,6 +23,7 @@
             score/time by ten seconds!</p>
         <button id="startQuizBtn">Start Quiz</button>
     </div>
+    <!--Questions Screen-->
     <div class="questionsPage">
         <h2 id="question">Question</h2>
         <button id="answerA"></button>
@@ -30,9 +32,29 @@
         <button id="answerD"></button>
         <h3 id="validate">Test</h3>
     </div>
+    <!--Score Screen-->
+    <div class="scorePage">
+        <h2>All done!</h2>
+        <h3 id="scoreDisplay">Your final score is </h3>
+        <div class="inputfild">
+            <h4>Enter initials:</h4>
+            <button id="submit">Submit</button>
+            <input type="text" id="inputBox">
+        </div>
+    </div>
+    <!--Highscores Screen-->
+    <div class="highscorePage">
+        <h2>Highscores</h2>
+        <h3 id="scores"></h3>
+        <div class="highBtns">
+            <button id="backBtn">Go Back</button>
+            <button id="clearBtn">Clear Highscores</button>
+        </div>
+    </div>
     <script src = "./assets/script.js"></script>
 </body>
 </html>
 
-<!--TODO:Make the questions and answers random-->
+<!--TODO:Make the view highscore sow the highscore-->
 <!--TODO:Make the timer-->
+<!--CANADD:if user takes to long on a question than it gos to the next question-->
