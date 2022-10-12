@@ -21,13 +21,19 @@ var scores = document.querySelector("#scores");
 var backBtn = document.querySelector("#backBtn");
 var clearBtn = document.querySelector("#clearBtn");
 
-var scoreNum = localStorage.getItem("scoreNum");
-var localSavedScores = localStorage.getItem(`${1}highScore`);
+var localSavedScores = localStorage.getItem("highScore");
+var getIncNum = localStorage.getItem("incNum");
+
 
 if (localSavedScores) {
     scores.textContent = localSavedScores;
 }
 
+if (getIncNum) {
+} else {
+    localStorage.setItem("incNum", 1);
+    window.location.reload();
+}
 class Question {
     // This class will crate a question
     constructor(question, answerA, answerB, answerC, answerD, correctAnswer) {
@@ -133,6 +139,7 @@ function timeInc() {
     // Increments the time
     if (timer.textContent == '0') {
         clearInterval(inter);
+        displaysScoreScreen();
     } else {
         --timer.textContent;
     }
@@ -140,6 +147,7 @@ function timeInc() {
 function timerStart() {
     // calls the timeInc function evert second
     inter = setInterval(timeInc, 1000);
+
 }
 function timerStop() {
     // stops the timer
@@ -156,20 +164,22 @@ function displaysScoreScreen() {
     timerStop();
     questionsScreen.style.display = 'none';
     scoreScreen.style.display = 'flex';
-    scoreDisplay.textContent += timer.textContent; submitBtn.addEventListener('click', function (event) {
+    scoreDisplay.textContent += timer.textContent;
+    submitBtn.addEventListener('click', function (event) {
         saveScore();
         scoreScreen.style.display = 'none';
         highScoresScreen.style.display = 'grid';
         scoreDisplay.textContent = '';
-        scores.textContent = localStorage.getItem(`${1}highScore`);
+
+        for (var i = 0; i < getIncNum; i++) {
+            scores.textContent += localStorage.getItem(`${i + 1}highScore`) + "\n";
+        }
         scoreDisplay.textContent = "Your final score is ";
     });
 }
-
-var test = localStorage.getItem("scoreNum"); 
 function saveScore() {
     // Saves the scores to localStorage
-    localStorage.setItem(`${1}highScore`, `${scoreNum}. ${inputBox.value} - ${timer.textContent}`);
+    localStorage.setItem(`${getIncNum}highScore`, `${getIncNum}. ${inputBox.value} - ${timer.textContent}`);
 }
 
 // Answer buttons click
@@ -209,19 +219,16 @@ onScreenAnswerD.addEventListener("click", function (event) {
     }
     getDisplay();
 
-// highScoresScreen Buttons
+    // highScoresScreen Buttons
 });
 backBtn.addEventListener("click", function (event) {
-    highScoresScreen.style.display = "none";
-    startContent.style.display = "grid";
-    timer.textContent = 75;
+    localStorage.setItem("incNum", parseInt(getIncNum) + 1);
+    window.location.reload();
 });
 clearBtn.addEventListener("click", function (event) {
-    highScoresScreen.style.display = "none";
-    startContent.style.display = "grid";
+    window.location.reload();
     localStorage.clear();
-    localStorage.setItem("scoreNum", 1);
-    timer.textContent = 75;
+    localStorage.setItem("incNum", 1);
 });
 
 
