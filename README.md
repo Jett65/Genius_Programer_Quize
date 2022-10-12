@@ -20,4 +20,4 @@ Please refer to the LICENSE in the repo.
 
 ## Screen Shots
 ![Screenshot of site](https://github.com/Jett65/Genius_Programer_Quize/blob/main/assets/images/pageOne.png)
-![Screenshot of site](.\assets\images\pageTwo.png)
+![Screenshot of site](https://github.com/Jett65/Genius_Programer_Quize/blob/main/assets/images/pageTwo.png)
