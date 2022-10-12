@@ -209,7 +209,7 @@ onScreenAnswerD.addEventListener("click", function (event) {
     }
     getDisplay();
 
-    // highScoresScreen Buttons
+// highScoresScreen Buttons
 });
 backBtn.addEventListener("click", function (event) {
     highScoresScreen.style.display = "none";
