@@ -165,20 +165,12 @@ function displaysScoreScreen() {
         scoreDisplay.textContent = "Your final score is ";
     });
 }
+
 var test = localStorage.getItem("scoreNum"); 
 function saveScore() {
-    console.log(++test);
+    // Saves the scores to localStorage
     localStorage.setItem(`${1}highScore`, `${scoreNum}. ${inputBox.value} - ${timer.textContent}`);
 }
-// Start Button click
-startBtn.addEventListener("click", function (event) {
-    // when start button is clicked
-    startContent.style.display = "none";
-    questionsScreen.style.display = "grid";
-    timer.style.display = "flex";
-    timerStart();
-    questionOne.displayQuestion();
-});
 
 // Answer buttons click
 onScreenAnswerA.addEventListener("click", function (event) {
@@ -232,4 +224,15 @@ clearBtn.addEventListener("click", function (event) {
     timer.textContent = 75;
 });
 
+
+
+// Start Button click
+startBtn.addEventListener("click", function (event) {
+    // when start button is clicked
+    startContent.style.display = "none";
+    questionsScreen.style.display = "grid";
+    timer.style.display = "flex";
+    timerStart();
+    questionOne.displayQuestion();
+});
 //TODO: Figer out the numbers of the scors
